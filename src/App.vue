@@ -1,32 +1,23 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <div id='#app'></div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import api from '@/api'
+export default {
+created(){
+  api.v(this)
+  api.login.loginIn({data:{name:'zs'},success:()=>{
+    console.log(this.loginIn,111);
+  }})
+  api.login.loginOut({data:{name:'zs'},success:()=>{
+    console.log(this.loginIn,2222);
+  }})
+
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
+</script>
+
+<style>
+
 </style>
